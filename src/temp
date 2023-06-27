@@ -1,0 +1,38 @@
+        nodes=[]
+        links=[]
+        var index=0;
+        var cur_cwe=CWEData.Weakness_Catalog.Weaknesses.Weakness[index]._attributes.ID
+        //console.log(CWEData.Weakness_Catalog.Weaknesses.Weakness[0]._attributes.ID);
+        var stack = [];
+        if (Array.isArray(result1.Weakness_Catalog.Weaknesses.Weakness[index].Related_Weaknesses.Related_Weakness))
+        {
+            for (let i = 0, len = CWEData.Weakness_Catalog.Weaknesses.Weakness[index].Related_Weaknesses.Related_Weakness.length; i < len; i++)
+            {
+           let x= CWEData.Weakness_Catalog.Weaknesses.Weakness[index].Related_Weaknesses.Related_Weakness[i]._attributes.CWE_ID
+            stack.push(x)
+           nodes.push({id:x})
+           links.push({ source: cur_cwe, target: x })
+            }
+        }
+
+        else
+        {
+            let x= CWEData.Weakness_Catalog.Weaknesses.Weakness[index].Related_Weaknesses.Related_Weakness[i]._attributes.CWE_ID
+            stack.push(x)
+           nodes.push({id:x})
+           links.push({ source: cur_cwe, target: x })
+        }
+        while(stack.length!=0)
+        {
+            cur_cwe=stack.pop()
+           let curidx
+            for(let index=0,len = CWEData.Weakness_Catalog.Weaknesses.Weakness.length;i<len;i++)
+            {
+                if(CWEData.Weakness_Catalog.Weaknesses.Weakness[index]._attributes.ID==cur_cwe)
+                {
+                curidx=index
+                break;
+                }
+            }
+            
+        }
