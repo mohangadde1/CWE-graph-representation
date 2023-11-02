@@ -1,5 +1,5 @@
 # network_graph
-Visualization of CWE \n
-use npm Install  to install corresponding library  \n
-npm start to run the code
+Visualization of CWE.   
+use npm Install  to install corresponding library.   
+npm start to run the code.  
 
